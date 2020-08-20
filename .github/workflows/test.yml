@@ -11,7 +11,8 @@ jobs:
           node-version: 12
       - run: npm install
       - run: ./node_modules/.bin/tsc -p .
-      - name: Set PR Comment
+  
+      name: Set PR Comment
       - uses: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
