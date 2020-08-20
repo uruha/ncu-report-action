@@ -1,0 +1,36 @@
+{
+  "name": "dev-gh-actions",
+  "version": "1.0.0",
+  "description": "Github Actions original development",
+  "main": "index.js",
+  "scripts": {
+    "type:check": "npx tsc -p . --noEmit",
+    "build": "npx tsc",
+    "exec": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uruha/dev-gh-actions.git"
+  },
+  "keywords": [
+    "github-actions",
+    "typescript",
+    "docker"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uruha/dev-gh-actions/issues"
+  },
+  "homepage": "https://github.com/uruha/dev-gh-actions#readme",
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0"
+  }
+}
