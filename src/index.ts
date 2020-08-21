@@ -33,3 +33,5 @@ const exec = async () => {
     core.setFailed(error.message);
   }
 };
+
+exec();
