@@ -3,7 +3,6 @@ import * as github from '@actions/github';
 import * as ncu from 'npm-check-updates';
 
 const exec = async () => {
-  console.log(github.context.payload);
   const pr = github.context.payload.pull_request;
   if (!pr) {
     console.log('github.context.payload.pull_request not exist');
@@ -25,6 +24,7 @@ const exec = async () => {
     const upgraded = await ncu.run({
       packageManager: 'npm'
     });
+    console.log(upgraded);
 
     const response = await octokit.issues.createComment({
       owner,
