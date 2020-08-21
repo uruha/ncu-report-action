@@ -22,18 +22,23 @@ const exec = async () => {
 
   try {
     const packageManager = core.getInput('package-manager');
-    console.log(packageManager);
-
     const upgraded = await ncu.run({
       packageManager: `${packageManager ? packageManager : 'npm'}`
     });
     console.info(upgraded);
 
+    let bodyMessage: string;
+    if(Object.keys(upgraded).length > 0) {
+      bodyMessage = `⚠️ Check dependencies to upgrade: ${JSON.stringify(upgraded)}`;
+    } else {
+      bodyMessage = '👍 All the latest modules 🙆‍♀️';
+    }
+
     const response = await octokit.issues.createComment({
       owner,
       repo,
       issue_number: pr.number,
-      body: `dependencies to upgrade: ${JSON.stringify(upgraded)}`,
+      body: bodyMessage,
     });
     console.log(`created comment URL: ${response.data.html_url}`);
 

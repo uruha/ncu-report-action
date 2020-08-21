@@ -6,9 +6,9 @@ runs:
   main: 'dist/index.js'
 inputs:
   package-manager:
-      description: 'Choose package manager (npm or yarn)'
-      required: false
-      default: 'npm'
+    description: 'Choose package manager (npm or yarn)'
+    required: false
+    default: 'npm'
 outputs:
   commentUrl:
     description: 'Comment URL'
