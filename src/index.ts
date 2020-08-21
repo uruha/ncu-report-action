@@ -1,8 +1,8 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
+import * as ncu from 'npm-check-updates';
 
 const exec = async () => {
-  console.log(github.context.payload);
   const pr = github.context.payload.pull_request;
   if (!pr) {
     console.log('github.context.payload.pull_request not exist');
@@ -21,11 +21,24 @@ const exec = async () => {
   const [owner, repo] = repoWithOwner.split('/');
 
   try {
+    const packageManager = core.getInput('package-manager');
+    const upgraded = await ncu.run({
+      packageManager: `${packageManager ? packageManager : 'npm'}`
+    });
+    console.info(upgraded);
+
+    let bodyMessage: string;
+    if(Object.keys(upgraded).length > 0) {
+      bodyMessage = `⚠️ Check dependencies to upgrade: ${JSON.stringify(upgraded)}`;
+    } else {
+      bodyMessage = '👍 All the latest modules 🙆‍♀️';
+    }
+
     const response = await octokit.issues.createComment({
       owner,
       repo,
       issue_number: pr.number,
-      body: 'PR comment !',
+      body: bodyMessage,
     });
     console.log(`created comment URL: ${response.data.html_url}`);
 
