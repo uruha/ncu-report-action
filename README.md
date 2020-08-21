@@ -1,6 +1,10 @@
 # npm check updates PR reporter
 This actions is `npm-check-updates` reporter when pull-request created on comment.
 
+## Inputs
+### package-manager
+Choose package manager (npm or yarn)
+
 ## Outputs
 ### commentUrl
 Bot commnet URL
