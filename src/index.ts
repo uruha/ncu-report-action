@@ -1,5 +1,6 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
+import * as ncu from 'npm-check-updates';
 
 const exec = async () => {
   console.log(github.context.payload);
@@ -21,11 +22,15 @@ const exec = async () => {
   const [owner, repo] = repoWithOwner.split('/');
 
   try {
+    const upgraded = await ncu.run({
+      packageManager: 'npm'
+    });
+
     const response = await octokit.issues.createComment({
       owner,
       repo,
       issue_number: pr.number,
-      body: 'PR comment !',
+      body: `dependencies to upgrade: ${JSON.stringify(upgraded)}`,
     });
     console.log(`created comment URL: ${response.data.html_url}`);
 
