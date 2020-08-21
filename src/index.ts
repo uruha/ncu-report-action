@@ -21,11 +21,13 @@ const exec = async () => {
   const [owner, repo] = repoWithOwner.split('/');
 
   try {
+    const packageManager = core.getInput('package-manager');
+    console.log(packageManager);
+
     const upgraded = await ncu.run({
-      jsonDeps: true,
-      silent: false
+      packageManager: `${packageManager ? packageManager : 'npm'}`
     });
-    console.log(upgraded);
+    console.info(upgraded);
 
     const response = await octokit.issues.createComment({
       owner,
