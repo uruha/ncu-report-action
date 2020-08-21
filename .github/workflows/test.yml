@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: 12
       - run: npm install
-      - run: ./node_modules/.bin/tsc -p .
+      - run: ./node_modules/.bin/tsc -p . --outDir ./dist
   
       - uses: ./
         env:
