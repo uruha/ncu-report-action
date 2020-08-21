@@ -3,11 +3,11 @@ import * as github from '@actions/github';
 
 const exec = async () => {
   console.log(github.context.payload);
-  // const pr = github.context.payload.pull_request;
-  // if (!pr) {
-  //   console.log('github.context.payload.pull_request not exist');
-  //   return;
-  // }
+  const pr = github.context.payload.pull_request;
+  if (!pr) {
+    console.log('github.context.payload.pull_request not exist');
+    return;
+  }
 
   const token = process.env['GITHUB_TOKEN'];
   if (!token) {

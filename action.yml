@@ -4,3 +4,6 @@ description: 'npm-check-updates report for pull-request creation'
 runs:
   using: 'node12'
   main: 'dist/index.js'
+outputs:
+  commentUrl:
+    description: 'Comment URL'
