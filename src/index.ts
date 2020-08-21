@@ -22,7 +22,8 @@ const exec = async () => {
 
   try {
     const upgraded = await ncu.run({
-      packageManager: 'npm'
+      packageManager: 'npm',
+      jsonAll: true
     });
     console.log(upgraded);
 
