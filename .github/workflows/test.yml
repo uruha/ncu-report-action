@@ -12,10 +12,9 @@ jobs:
       - run: npm install
       - run: ./node_modules/.bin/tsc -p .
   
-      - name: Set PR Comment
-        uses: ./
+      - uses: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         id: prComment
-        run: echo "Comment URL - ${{ steps.prComment.outputs.commentUrl }}"
+      - run: echo "Comment URL - ${{ steps.prComment.outputs.commentUrl }}"
         if: steps.prComment.outputs.commentUrl
