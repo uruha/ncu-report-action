@@ -11,10 +11,6 @@ outputs:
   commentUrl:
     description: 'Comment URL'
 
-# runs:
-#   using: 'node12'
-#   main: 'dist/index.js'
-
 runs:
   using: 'docker'
   image: 'Dockerfile'
