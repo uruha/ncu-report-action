@@ -12,6 +12,6 @@ RUN pwd
 RUN ls ./
 RUN ls ./dist
 
-COPY ./dist ./dist
+COPY dist /github/workspace/dist
 
 ENTRYPOINT [ "npm", "run", "exec" ]
