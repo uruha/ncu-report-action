@@ -10,9 +10,6 @@ RUN npm run build
 
 RUN pwd
 RUN ls ./
-RUN ls ./lib
-
-WORKDIR /github/workspace
-COPY ./github/workspace/lib ./lib
+RUN ls ./dist
 
 ENTRYPOINT [ "npm", "run", "exec" ]

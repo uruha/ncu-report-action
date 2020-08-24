@@ -2,13 +2,13 @@
   "name": "ncu-report-action",
   "version": "1.0.0",
   "description": "npm check updates PR reporter",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "type:check": "tsc -p . --noEmit",
     "lint:check": "eslint . --ext .ts",
     "lint:fmt": "eslint . --fix --ext .ts",
-    "build": "tsc src/index.ts",
-    "exec": "node lib/index.js",
+    "build": "tsc",
+    "exec": "node dist/index.js",
     "exec:direct": "ts-node src/index.ts",
     "package": "ncc build --source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
