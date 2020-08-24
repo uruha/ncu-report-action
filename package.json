@@ -9,7 +9,7 @@
     "lint:fmt": "eslint . --fix --ext .ts",
     "build": "tsc",
     "exec:build": "node dist/index.js",
-    "exec": "ts-node src/index.ts",
+    "exec": "npx ts-node src/index.ts",
     "package": "ncc build --source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
