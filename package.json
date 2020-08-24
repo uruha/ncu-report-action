@@ -8,8 +8,8 @@
     "lint:check": "eslint . --ext .ts",
     "lint:fmt": "eslint . --fix --ext .ts",
     "build": "tsc",
-    "exec": "node dist/index.js",
-    "exec:direct": "ts-node src/index.ts",
+    "exec:build": "node dist/index.js",
+    "exec": "ts-node src/index.ts",
     "package": "ncc build --source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
