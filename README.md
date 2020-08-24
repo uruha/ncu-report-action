@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     name: npm-check-updates report
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/ncu-report-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
