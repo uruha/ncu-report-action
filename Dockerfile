@@ -6,4 +6,4 @@ RUN npm install -g npm && \
 
 COPY . ./
 
-ENTRYPOINT ["npm", "run", "exec"]
+CMD ["npm", "run", "exec"]
