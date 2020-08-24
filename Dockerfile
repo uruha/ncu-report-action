@@ -6,14 +6,12 @@ RUN npm install -g npm && \
 
 COPY . ./
 
+WORKDIR /github/workspace
+
 RUN npm run build
 
 RUN pwd
 RUN ls ./
 RUN ls ./dist
-
-WORKDIR /github/workspace
-
-COPY ./dist ./dist
 
 ENTRYPOINT [ "npm", "run", "exec" ]
