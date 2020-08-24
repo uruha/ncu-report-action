@@ -8,6 +8,8 @@ COPY . ./
 
 RUN npm run build
 
-COPY ./lib ./lib
+# WORKDIR /github/workspace
+
+# COPY ./github/workspace/lib ./lib
 
 ENTRYPOINT [ "npm", "run", "exec" ]
