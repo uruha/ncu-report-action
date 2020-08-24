@@ -12,6 +12,8 @@ RUN pwd
 RUN ls ./
 RUN ls ./dist
 
-COPY dist/index.js /dist/index.js
+WORKDIR /github/workspace
+
+COPY ./dist ./dist
 
 ENTRYPOINT [ "npm", "run", "exec" ]
