@@ -7,10 +7,7 @@
     "type:check": "tsc -p . --noEmit",
     "lint:check": "eslint . --ext .ts",
     "lint:fmt": "eslint . --fix --ext .ts",
-    "build": "tsc",
-    "exec:build": "node dist/index.js",
     "exec": "npx ts-node src/index.ts",
-    "package": "ncc build --source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
