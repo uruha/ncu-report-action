@@ -1,12 +1,12 @@
 FROM node:12.14.1-alpine
 
+WORKDIR /github/workspace
+
 COPY package*.json ./
 RUN npm install -g npm && \
     npm install --production
 
 COPY . ./
-
-WORKDIR /github/workspace
 
 RUN npm run build
 
