@@ -12,6 +12,6 @@ RUN pwd
 RUN ls ./
 RUN ls ./dist
 
-COPY . ./dist
+COPY dist/index.js ./dist/index.js
 
 ENTRYPOINT [ "npm", "run", "exec" ]
