@@ -8,6 +8,6 @@ COPY . ./
 
 RUN npm run build
 
-COPY . ./lib
+COPY ./lib ./lib
 
 ENTRYPOINT [ "npm", "run", "exec" ]
