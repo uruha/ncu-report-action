@@ -4,4 +4,6 @@ COPY package*.json ./
 RUN npm install -g npm && \
     npm install --production
 
+COPY . ./
+
 ENTRYPOINT [ "npm", "run", "exec" ]
