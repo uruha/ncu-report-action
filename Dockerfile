@@ -2,8 +2,9 @@ FROM node:12.14.1-alpine
 
 COPY package*.json ./
 RUN npm install -g npm && \
-    npm install
+    npm install -g ts-node && \
+    npm install --production
 
 COPY . ./
 
-CMD ["npm", "run", "exec"]
+ENTRYPOINT [ "npm", "run", "exec" ]
